@@ -7,8 +7,9 @@
 #show-next-button {
     display: block;
     position: fixed;
-    bottom: 20px;
+    bottom: 60px;  /* Adjusted as per your request */
     right: 20px;
+    width: 200px;  /* Set width to match other buttons */
     padding: 10px 20px;
     background-color: #19c37d; /* ChatGPT green */
     color: white;
@@ -26,11 +27,11 @@
 #auto-finish-button {
   display: none;
   position: fixed;
-  bottom: 100px;  /* Adjust these values as needed */
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 100px;  /* Adjusted as per your request */
+  right: 20px;
+  width: 200px;  /* Set width to match other buttons */
   padding: 10px 20px;
-  background-color: #19c37d;  /* You can choose a different color */
+  background-color: #45D398;  /* Lighter green */
   color: white;
   border: none;
   border-radius: 5px;
@@ -40,7 +41,27 @@
 }
 
 #auto-finish-button:hover {
-  background-color: #16a76b;  /* You can choose a different hover color */
+  background-color: #3BB988;  /* Slightly darker green for hover */
+}
+
+#auto-finish-conversation-button {
+  display: block;
+  position: fixed;
+  bottom: 140px;  /* Adjusted as per your request */
+  right: 20px;
+  width: 200px;  /* Set width to match other buttons */
+  padding: 10px 20px;
+  background-color: #128C57;  /* Darker green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 9999;
+}
+
+#auto-finish-conversation-button:hover {
+  background-color: #0F7A44;  /* Slightly darker green for hover */
 }
 
 /* Styles for currently displayed conversation block */

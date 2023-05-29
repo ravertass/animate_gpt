@@ -10,17 +10,20 @@ $(document).ready(function () {
   $('.group:first').addClass('displayed');
 
   // Append "Show next message" button to the page
-  $('body').append('<button id="show-next-button" class="button">Show next message</button>');
+  $('body').append('<button id="show-next-button" class="button">Next message</button>');
 
   // Append "Auto-finish message" button to the page, initially hidden
-  $('body').append('<button id="auto-finish-button" class="button" style="display: none;">Auto-finish message</button>');
+  $('body').append('<button id="auto-finish-button" class="button" style="display: none;">Show complete message</button>');
+
+  // Append "Auto-finish conversation" button to the page
+  $('body').append('<button id="auto-finish-conversation-button" class="button">Show complete conversation</button>');
 
   // Initially hide the continue button
   $('a[href*="continue"]').hide();
 
   $('#show-next-button').click(showNextMessage);
-
   $('#auto-finish-button').click(autoFinishMessage);
+  $('#auto-finish-conversation-button').click(autoFinishConversation);
 });
 
 function showNextMessage() {
@@ -59,7 +62,9 @@ function showNextMessage() {
   }
 
   if ($('.group:not(.displayed)').first().length == 0) {
-    // When all messages have been displayed, you can choose to hide the button
+    // When all messages have been displayed, hide the auto-finish buttons
+    $('#auto-finish-button').hide();
+    $('#auto-finish-conversation-button').hide();
     $('#show-next-button').hide();
 
     // Show the continue button when all messages have been displayed
@@ -89,4 +94,18 @@ function autoFinishMessage() {
     // Hide the auto-finish button
     $('#auto-finish-button').hide();
   }
+}
+
+function autoFinishConversation() {
+  // Loop until all messages have been displayed
+  while ($('.group:not(.displayed)').first().length > 0) {
+    showNextMessage();
+    autoFinishMessage();
+  }
+
+  // Hide the auto-finish button
+  $('#auto-finish-button').hide();
+
+  // Hide the auto-finish conversation button
+  $('#auto-finish-conversation-button').hide();
 }
