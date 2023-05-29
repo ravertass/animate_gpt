@@ -7,10 +7,9 @@
 #show-next-button {
     display: block;
     position: fixed;
-    bottom: 60px;  /* Adjusted as per your request */
+    bottom: 80px; /* Increase from 20px to create more space between buttons */
     right: 20px;
-    width: 200px;  /* Set width to match other buttons */
-    padding: 10px 20px;
+    padding: 10px 30px; /* Increase horizontal padding for wider button */
     background-color: #19c37d; /* ChatGPT green */
     color: white;
     border: none;
@@ -18,6 +17,8 @@
     cursor: pointer;
     font-size: 16px;
     z-index: 9999; /* Make sure it's above everything else */
+    width: 200px; /* New: Fixed width for consistency */
+    text-align: center; /* New: Center text */
 }
 
 #show-next-button:hover {
@@ -27,41 +28,43 @@
 #auto-finish-button {
   display: none;
   position: fixed;
-  bottom: 100px;  /* Adjusted as per your request */
-  right: 20px;
-  width: 200px;  /* Set width to match other buttons */
-  padding: 10px 20px;
-  background-color: #45D398;  /* Lighter green */
+  bottom: 140px;  /* Increase from 20px to create more space between buttons */
+  right: 20px; /* Align right like the other buttons */
+  padding: 10px 30px; /* Increase horizontal padding for wider button */
+  background-color: #7dc392;  /* Lighter color for 'Auto-finish message' button */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   z-index: 9999;
+  width: 200px; /* New: Fixed width for consistency */
+  text-align: center; /* New: Center text */
 }
 
 #auto-finish-button:hover {
-  background-color: #3BB988;  /* Slightly darker green for hover */
+  background-color: #6aab7d;  /* You can choose a different hover color */
 }
 
 #auto-finish-conversation-button {
-  display: block;
+  display: block; /* Make the button initially visible */
   position: fixed;
-  bottom: 140px;  /* Adjusted as per your request */
-  right: 20px;
-  width: 200px;  /* Set width to match other buttons */
-  padding: 10px 20px;
-  background-color: #128C57;  /* Darker green */
+  bottom: 20px; /* This button stays at the bottom */
+  right: 20px; /* Align right like the other buttons */
+  padding: 10px 30px; /* Increase horizontal padding for wider button */
+  background-color: #159961; /* Darker color for 'Auto-finish conversation' button */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   z-index: 9999;
+  width: 200px; /* New: Fixed width for consistency */
+  text-align: center; /* New: Center text */
 }
 
 #auto-finish-conversation-button:hover {
-  background-color: #0F7A44;  /* Slightly darker green for hover */
+  background-color: #138456; /* Slightly darker color for hover effect */
 }
 
 /* Styles for currently displayed conversation block */
@@ -69,3 +72,4 @@
     display: block; /* show the conversation block */
     border: 2px solid #19c37d; /* ChatGPT green */
 }
+``

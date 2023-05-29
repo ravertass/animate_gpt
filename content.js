@@ -13,10 +13,10 @@ $(document).ready(function () {
   $('body').append('<button id="show-next-button" class="button">Next message</button>');
 
   // Append "Auto-finish message" button to the page, initially hidden
-  $('body').append('<button id="auto-finish-button" class="button" style="display: none;">Show complete message</button>');
+  $('body').append('<button id="auto-finish-button" class="button" style="display: none;">Complete typing</button>');
 
   // Append "Auto-finish conversation" button to the page
-  $('body').append('<button id="auto-finish-conversation-button" class="button">Show complete conversation</button>');
+  $('body').append('<button id="auto-finish-conversation-button" class="button">Show all</button>');
 
   // Initially hide the continue button
   $('a[href*="continue"]').hide();
