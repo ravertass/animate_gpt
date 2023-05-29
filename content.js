@@ -15,6 +15,9 @@ $(document).ready(function () {
   // Append "Auto-finish message" button to the page, initially hidden
   $('body').append('<button id="auto-finish-button" class="button" style="display: none;">Auto-finish message</button>');
 
+  // Initially hide the continue button
+  $('a[href*="continue"]').hide();
+
   $('#show-next-button').click(showNextMessage);
 
   $('#auto-finish-button').click(autoFinishMessage);
@@ -58,6 +61,9 @@ function showNextMessage() {
   if ($('.group:not(.displayed)').first().length == 0) {
     // When all messages have been displayed, you can choose to hide the button
     $('#show-next-button').hide();
+
+    // Show the continue button when all messages have been displayed
+    $('a[href*="continue"]').show();
   }
 }
 
