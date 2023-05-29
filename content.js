@@ -49,7 +49,10 @@ function showNextMessage() {
       strings: messageLines,
       typeSpeed: 5,
       contentType: 'html',
-      showCursor: false
+      showCursor: false,
+      onComplete: function(self) {  // Add the onComplete callback here
+        $('#auto-finish-button').hide();
+      }
     };
 
     // Save the original HTML of the message
