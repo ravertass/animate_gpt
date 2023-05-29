@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Message Display",
+  "version": "1.0",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/share/*"],
+      "css": ["styles.css"],
+      "js": ["jquery-3.7.0.min.js", "typed.min.js", "content.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/share/*"
+  ]
+}

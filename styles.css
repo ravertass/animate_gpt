@@ -1,0 +1,30 @@
+/* Hiding conversation blocks */
+.group {
+    display: none;
+}
+
+/* Styles for the 'Show next message' button */
+#show-next-button {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #19c37d; /* ChatGPT green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 9999; /* Make sure it's above everything else */
+}
+
+#show-next-button:hover {
+    background-color: #16a76b; /* Slightly darker green for hover effect */
+}
+
+/* Styles for currently displayed conversation block */
+.group.displayed {
+    display: block; /* show the conversation block */
+    border: 2px solid #19c37d; /* ChatGPT green */
+}
