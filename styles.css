@@ -1,24 +1,19 @@
-/* Hiding conversation blocks */
-.group {
-    display: none;
-}
-
 /* Styles for the 'Show next message' button */
 #show-next-button {
-    display: block;
-    position: fixed;
-    bottom: 80px; /* Increase from 20px to create more space between buttons */
-    right: 20px;
-    padding: 10px 30px; /* Increase horizontal padding for wider button */
-    background-color: #19c37d; /* ChatGPT green */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 9999; /* Make sure it's above everything else */
-    width: 200px; /* New: Fixed width for consistency */
-    text-align: center; /* New: Center text */
+  display: block;
+  position: fixed;
+  bottom: 80px; /* Increase from 20px to create more space between buttons */
+  right: 20px;
+  padding: 10px 30px; /* Increase horizontal padding for wider button */
+  background-color: #19c37d; /* ChatGPT green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 9999; /* Make sure it's above everything else */
+  width: 200px; /* New: Fixed width for consistency */
+  text-align: center; /* New: Center text */
 }
 
 #show-next-button:hover {
@@ -72,4 +67,24 @@
     display: block; /* show the conversation block */
     border: 2px solid #19c37d; /* ChatGPT green */
 }
-``
+
+#start-plugin-button {
+    display: block;
+    position: fixed;
+    bottom: 20px; /* Align with other buttons */
+    right: 20px;
+    padding: 10px 30px; /* Increase horizontal padding for wider button */
+    background-color: #19c37d; /* ChatGPT green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 9999; /* Make sure it's above everything else */
+    width: 200px; /* New: Fixed width for consistency */
+    text-align: center; /* New: Center text */
+}
+
+#start-plugin-button:hover {
+    background-color: #16a76b; /* Slightly darker green for hover effect */
+}

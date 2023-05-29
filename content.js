@@ -1,8 +1,16 @@
 // content.js
 
 let typedInstance = null; // Initialize a variable to hold the Typed.js instance
+let scrollInterval = null; // Initialize a variable to hold the setInterval function
 
 $(document).ready(function () {
+  // Append "Start plugin" button to the page
+  $('body').append('<button id="start-plugin-button" class="button">Animate conversation</button>');
+
+  $('#start-plugin-button').click(startPlugin);
+});
+
+function startPlugin() {
   // Hide all conversation blocks except the first one
   $('.group:not(:first)').hide();
 
@@ -24,10 +32,19 @@ $(document).ready(function () {
   $('#show-next-button').click(showNextMessage);
   $('#auto-finish-button').click(autoFinishMessage);
   $('#auto-finish-conversation-button').click(autoFinishConversation);
-});
+
+  // Hide the start plugin button
+  $('#start-plugin-button').hide();
+}
 
 function showNextMessage() {
   autoFinishMessage();
+
+  // Setup the setInterval function to scroll to the bottom every 100 milliseconds
+  scrollInterval = setInterval(function() {
+    var chatContainer = document.querySelector('div.h-full.overflow-auto');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }, 100);
 
   let nextMessage = $('.group:not(.displayed)').first();
   var typedTarget = nextMessage.find('.break-words')[0]; // Get the DOM element directly
@@ -52,6 +69,7 @@ function showNextMessage() {
       showCursor: false,
       onComplete: function(self) {  // Add the onComplete callback here
         $('#auto-finish-button').hide();
+        clearInterval(scrollInterval);
       }
     };
 
@@ -95,6 +113,9 @@ function autoFinishMessage() {
 
     // Remove the typing cursor
     $('.typed-cursor').remove();
+
+    // Clear the scrollInterval when auto finish button is clicked
+    clearInterval(scrollInterval);
 
     // Find the chat container
     var chatContainer = document.querySelector('div.h-full.overflow-auto');
