@@ -2,6 +2,7 @@
 
 let typedInstance = null; // Initialize a variable to hold the Typed.js instance
 let scrollInterval = null; // Initialize a variable to hold the setInterval function
+let popupWindow = null; // Initialize a variable to hold the popup window instance
 
 $(document).ready(function () {
   // Append "Start plugin" button to the page
@@ -26,15 +27,29 @@ function startPlugin() {
   // Append "Auto-finish conversation" button to the page
   $('body').append('<button id="auto-finish-conversation-button" class="button">Show all</button>');
 
+  // Append "Show upcoming" button to the page
+  $('body').append('<button id="show-upcoming-button" class="button">Show upcoming</button>');
+
   // Initially hide the continue button
   $('a[href*="continue"]').hide();
 
+  // Add callbacks
   $('#show-next-button').click(showNextMessage);
   $('#auto-finish-button').click(autoFinishMessage);
   $('#auto-finish-conversation-button').click(autoFinishConversation);
+  $('#show-upcoming-button').click(showUpcomingMessage);
 
   // Hide the start plugin button
   $('#start-plugin-button').hide();
+}
+
+function showUpcomingMessage() {
+  let nextNextMessage = $('.group:not(.displayed)').eq(0); // Get the next hidden message
+  if (nextNextMessage.length > 0) {
+    // Open a new window for the popup
+    popupWindow = window.open("", "popupWindow", "width=200,height=100");
+    popupWindow.document.body.innerHTML = nextNextMessage.find('.break-words').html();
+  }
 }
 
 function showNextMessage() {
@@ -82,6 +97,16 @@ function showNextMessage() {
 
     // Show the auto-finish button
     $('#auto-finish-button').show();
+
+    // Display the next message in the popup window
+    if (popupWindow && !popupWindow.closed) {
+      let nextNextMessage = $('.group:not(.displayed)').eq(0); // Get the second hidden message
+      if (nextNextMessage.length > 0) {
+        popupWindow.document.body.innerHTML = nextNextMessage.find('.break-words').html();
+      } else {
+        popupWindow.document.body.innerHTML = "<center>No more messages</center>";
+      }
+    }
   }
 
   // Remove border from all displayed messages
@@ -140,4 +165,24 @@ function autoFinishConversation() {
 
   // Hide the auto-finish conversation button
   $('#auto-finish-conversation-button').hide();
+}
+
+$(document).on('click', 'pre div button', function () {
+  let codeElement = $(this).closest('div').siblings('div').find('code')[0];
+  copyCodeToClipboard(codeElement);
+});
+
+
+function copyCodeToClipboard(codeElement) {
+  // Create a temporary textarea to copy the code
+  let tempTextArea = document.createElement('textarea');
+  tempTextArea.value = codeElement.textContent;
+  document.body.appendChild(tempTextArea);
+
+  // Select the text and copy it
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Clean up by removing the temporary textarea
+  document.body.removeChild(tempTextArea);
 }

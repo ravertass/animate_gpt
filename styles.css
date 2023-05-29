@@ -88,3 +88,42 @@
 #start-plugin-button:hover {
     background-color: #16a76b; /* Slightly darker green for hover effect */
 }
+
+#show-upcoming-button {
+  display: block; /* Make the button initially visible */
+  position: fixed;
+  bottom: 20px; /* This button stays at the bottom */
+  left: 20px; /* Align left */
+  padding: 10px 30px; /* Increase horizontal padding for wider button */
+  background-color: #2C9184; /* Turquoise color for 'Show upcoming' button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 9999;
+  width: 200px; /* Fixed width for consistency */
+  text-align: center; /* Center text */
+}
+
+#show-upcoming-button:hover {
+  background-color: #20756C; /* Slightly darker turquoise color for hover effect */
+}
+
+/* Styles for the popup window */
+#upcoming-popup {
+  position: fixed;
+  bottom: 60px; /* Change as needed for your layout */
+  left: 20px; /* Align left unlike the other buttons */
+  width: 300px; /* Change as needed */
+  height: 200px; /* Change as needed */
+  padding: 20px;
+  background-color: white;
+  border: 2px solid #19c37d; /* ChatGPT green */
+  overflow: auto; /* Enable scrolling for long messages */
+  z-index: 9999; /* Make sure it's above everything else */
+}
+
+.hidden-popup {
+  display: none;
+}
