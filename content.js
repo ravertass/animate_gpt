@@ -27,6 +27,8 @@ $(document).ready(function () {
 });
 
 function showNextMessage() {
+  autoFinishMessage();
+
   let nextMessage = $('.group:not(.displayed)').first();
   var typedTarget = nextMessage.find('.break-words')[0]; // Get the DOM element directly
 
@@ -60,6 +62,12 @@ function showNextMessage() {
     // Show the auto-finish button
     $('#auto-finish-button').show();
   }
+
+  // Remove border from all displayed messages
+  $('.group.displayed').css('border', 'none');
+
+  // Add border to the last displayed message
+  $('.group.displayed:last').css('border', '2px solid #19c37d');
 
   if ($('.group:not(.displayed)').first().length == 0) {
     // When all messages have been displayed, hide the auto-finish buttons
