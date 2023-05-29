@@ -2,128 +2,110 @@
 #show-next-button {
   display: block;
   position: fixed;
-  bottom: 80px; /* Increase from 20px to create more space between buttons */
+  bottom: 80px;
   right: 20px;
-  padding: 10px 30px; /* Increase horizontal padding for wider button */
-  background-color: #19c37d; /* ChatGPT green */
+  padding: 10px 30px;
+  background-color: #19c37d;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  z-index: 9999; /* Make sure it's above everything else */
-  width: 200px; /* New: Fixed width for consistency */
-  text-align: center; /* New: Center text */
+  z-index: 9999;
+  width: 200px;
+  text-align: center;
 }
 
 #show-next-button:hover {
-    background-color: #16a76b; /* Slightly darker green for hover effect */
+    background-color: #16a76b;
 }
 
 #auto-finish-button {
   display: none;
   position: fixed;
-  bottom: 140px;  /* Increase from 20px to create more space between buttons */
-  right: 20px; /* Align right like the other buttons */
-  padding: 10px 30px; /* Increase horizontal padding for wider button */
-  background-color: #7dc392;  /* Lighter color for 'Auto-finish message' button */
+  bottom: 140px;
+  right: 20px;
+  padding: 10px 30px;
+  background-color: #7dc392; 
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   z-index: 9999;
-  width: 200px; /* New: Fixed width for consistency */
-  text-align: center; /* New: Center text */
+  width: 200px;
+  text-align: center;
 }
 
 #auto-finish-button:hover {
-  background-color: #6aab7d;  /* You can choose a different hover color */
+  background-color: #6aab7d; 
 }
 
 #auto-finish-conversation-button {
-  display: block; /* Make the button initially visible */
+  display: block;
   position: fixed;
-  bottom: 20px; /* This button stays at the bottom */
-  right: 20px; /* Align right like the other buttons */
-  padding: 10px 30px; /* Increase horizontal padding for wider button */
-  background-color: #159961; /* Darker color for 'Auto-finish conversation' button */
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 30px;
+  background-color: #159961;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   z-index: 9999;
-  width: 200px; /* New: Fixed width for consistency */
-  text-align: center; /* New: Center text */
+  width: 200px;
+  text-align: center;
 }
 
 #auto-finish-conversation-button:hover {
-  background-color: #138456; /* Slightly darker color for hover effect */
+  background-color: #138456;
 }
 
 /* Styles for currently displayed conversation block */
 .group.displayed {
-    display: block; /* show the conversation block */
-    border: 2px solid #19c37d; /* ChatGPT green */
+    display: block;
+    border: 2px solid #19c37d;
 }
 
 #start-plugin-button {
     display: block;
     position: fixed;
-    bottom: 20px; /* Align with other buttons */
+    bottom: 20px;
     right: 20px;
-    padding: 10px 30px; /* Increase horizontal padding for wider button */
-    background-color: #19c37d; /* ChatGPT green */
+    padding: 10px 30px;
+    background-color: #19c37d;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    z-index: 9999; /* Make sure it's above everything else */
-    width: 200px; /* New: Fixed width for consistency */
-    text-align: center; /* New: Center text */
+    z-index: 9999;
+    width: 200px;
+    text-align: center;
 }
 
 #start-plugin-button:hover {
-    background-color: #16a76b; /* Slightly darker green for hover effect */
+    background-color: #16a76b;
 }
 
 #show-upcoming-button {
-  display: block; /* Make the button initially visible */
+  display: block;
   position: fixed;
-  bottom: 20px; /* This button stays at the bottom */
-  left: 20px; /* Align left */
-  padding: 10px 30px; /* Increase horizontal padding for wider button */
-  background-color: #2C9184; /* Turquoise color for 'Show upcoming' button */
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 30px;
+  background-color: #2C9184;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   z-index: 9999;
-  width: 200px; /* Fixed width for consistency */
-  text-align: center; /* Center text */
+  width: 200px;
+  text-align: center;
 }
 
 #show-upcoming-button:hover {
-  background-color: #20756C; /* Slightly darker turquoise color for hover effect */
-}
-
-/* Styles for the popup window */
-#upcoming-popup {
-  position: fixed;
-  bottom: 60px; /* Change as needed for your layout */
-  left: 20px; /* Align left unlike the other buttons */
-  width: 300px; /* Change as needed */
-  height: 200px; /* Change as needed */
-  padding: 20px;
-  background-color: white;
-  border: 2px solid #19c37d; /* ChatGPT green */
-  overflow: auto; /* Enable scrolling for long messages */
-  z-index: 9999; /* Make sure it's above everything else */
-}
-
-.hidden-popup {
-  display: none;
+  background-color: #20756C;
 }
