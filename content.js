@@ -47,8 +47,9 @@ function showUpcomingMessage() {
   let nextNextMessage = $('.group:not(.displayed)').eq(0); // Get the next hidden message
   if (nextNextMessage.length > 0) {
     // Open a new window for the popup
-    popupWindow = window.open("", "popupWindow", "width=200,height=100");
+    popupWindow = window.open("", "popupWindow", "width=500,height=300");
     popupWindow.document.body.innerHTML = nextNextMessage.find('.break-words').html();
+    $('#show-upcoming-button').hide();
   }
 }
 
@@ -85,6 +86,15 @@ function showNextMessage() {
       onComplete: function(self) {  // Add the onComplete callback here
         $('#auto-finish-button').hide();
         clearInterval(scrollInterval);
+        if ($('.group:not(.displayed)').first().length == 0) {
+          // When all messages have been displayed, hide the auto-finish buttons
+          $('#auto-finish-button').hide();
+          $('#auto-finish-conversation-button').hide();
+          $('#show-next-button').hide();
+
+          // Show the continue button when all messages have been displayed
+          $('a[href*="continue"]').show();
+        }
       }
     };
 
@@ -104,8 +114,7 @@ function showNextMessage() {
       if (nextNextMessage.length > 0) {
         popupWindow.document.body.innerHTML = nextNextMessage.find('.break-words').html();
       } else {
-        popupWindow.document.body.innerHTML = "<center>No more messages</center>";
-      }
+        popupWindow.document.body.innerHTML = "<center style='color:gray;'>NO MORE MESSAGES</center>";      }
     }
   }
 
@@ -117,9 +126,7 @@ function showNextMessage() {
 
   if ($('.group:not(.displayed)').first().length == 0) {
     // When all messages have been displayed, hide the auto-finish buttons
-    $('#auto-finish-button').hide();
-    $('#auto-finish-conversation-button').hide();
-    $('#show-next-button').hide();
+    $('#show-upcoming-button').hide();
 
     // Show the continue button when all messages have been displayed
     $('a[href*="continue"]').show();
@@ -150,21 +157,28 @@ function autoFinishMessage() {
 
     // Hide the auto-finish button
     $('#auto-finish-button').hide();
+
+    if ($('.group:not(.displayed)').first().length == 0) {
+       $('#auto-finish-conversation-button').hide();
+       $('#show-upcoming-button').hide();
+       $('#show-next-button').hide();
+    }
   }
 }
 
 function autoFinishConversation() {
   // Loop until all messages have been displayed
+  autoFinishMessage();
   while ($('.group:not(.displayed)').first().length > 0) {
     showNextMessage();
     autoFinishMessage();
   }
 
-  // Hide the auto-finish button
+  // Hide buttons
   $('#auto-finish-button').hide();
-
-  // Hide the auto-finish conversation button
   $('#auto-finish-conversation-button').hide();
+  $('#show-upcoming-button').hide();
+  $('#show-next-button').hide();
 }
 
 $(document).on('click', 'pre div button', function () {
